@@ -1,7 +1,7 @@
 import Navbar from './components/Nav/Nav'
 import SearchBar from './components/SearchBar/SearchBar';
 import WordDefinition from './components/WordDefinition/WordDefinition';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 // type WordDefinition = {
 //   word: string;
@@ -16,7 +16,7 @@ function App() {
     const [definitions, setDefinitions] = useState<Array<WordDefinition> | string>("");
     const [selectedFont, setSelectedFont] = useState(0);
     const dictionaryAPIURI = 'https://api.dictionaryapi.dev/api/v2/entries/en/';
-    const fontOptions = ['sans','serif','mono'];
+    const fontOptions = ['sans', 'serif', 'mono'];
 
     const fetchWordDefinitions = async (word: string) => {
         const response = await fetch(`${dictionaryAPIURI}${word}`);
@@ -29,23 +29,25 @@ function App() {
     }
 
     const handleFontChange = (selected: number): void => {
-        if(selected < 0 || selected > 2) return;
+        if (selected < 0 || selected > 2) return;
 
         setSelectedFont(selected);
     }
 
     return (
-        <div className={`container pt-6 lg:pt-14 font-${fontOptions[selectedFont]}`}>
-            <Navbar handleFontChange={handleFontChange} />
-            <div className='pt-8'>
-                <SearchBar search={fetchWordDefinitions} />
-            </div>
-            <section className='h-screen'>
-                {typeof definitions !== 'string' && (
-                    definitions.map((definition: WordDefinition, i: number) => (
-                   <WordDefinition key={i} {...definition} /> )))}
-            </section>
-        </div >
+        <div className='dark:bg-gray-700 w-full h-screen'>
+            <main className={`container pt-6 lg:pt-14 font-${fontOptions[selectedFont]}`}>
+                <Navbar handleFontChange={handleFontChange} />
+                <div className='pt-8'>
+                    <SearchBar search={fetchWordDefinitions} />
+                </div>
+                <section className='h-screen'>
+                    {typeof definitions !== 'string' && (
+                        definitions.map((definition: WordDefinition, i: number) => (
+                            <WordDefinition key={i} {...definition} />)))}
+                </section>
+            </main >
+        </div>
     )
 }
 
