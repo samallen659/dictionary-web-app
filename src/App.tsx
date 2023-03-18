@@ -21,7 +21,6 @@ function App() {
     const fontOptions = ['sans', 'serif', 'mono'];
 
     const fetchWordDefinitions = async (word: string) => {
-        setSearched(true);
         const response = await fetch(`${dictionaryAPIURI}${word}`);
         if (!response.ok) {
             setDefinitions('');
@@ -29,6 +28,7 @@ function App() {
         }
         const json = await response.json();
         setDefinitions(json);
+        setSearched(true);
     }
 
     const handleFontChange = (selected: number): void => {
@@ -48,7 +48,7 @@ function App() {
                     {typeof definitions !== 'string' ? (
                         definitions.map((definition: WordDefinition, i: number) => (
                             <WordDefinition key={i} {...definition} />))) : (
-                            <NoDefinition searched={searched} />
+                        <NoDefinition searched={searched} />
                     )}
                 </section>
             </div >
