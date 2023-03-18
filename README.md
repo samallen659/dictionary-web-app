@@ -10,7 +10,7 @@ This is a solution to the [Dictionary web app challenge on Frontend Mentor](http
   - [Links](#links)
 - [My process](#my-process)
   - [Built with](#built-with)
-  - [Useful resources](#useful-resources)
+
 ## Overview
 
 ### The challenge
@@ -27,10 +27,11 @@ Users should be able to:
 
 ### Screenshot
 
+![screen shot](./screenshot.png)
+
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Running Site](https://dictionary-web-htlpv9ohl-samallen659.vercel.app)
 
 ## My process
 
@@ -40,4 +41,4 @@ Users should be able to:
 - vite
 - tailwindcss
 - Flowbite components
-
+- Neovim
