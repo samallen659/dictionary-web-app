@@ -11,8 +11,6 @@ This is a solution to the [Dictionary web app challenge on Frontend Mentor](http
 - [My process](#my-process)
   - [Built with](#built-with)
   - [Useful resources](#useful-resources)
-- [Author](#author)
-
 ## Overview
 
 ### The challenge

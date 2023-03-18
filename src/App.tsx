@@ -1,6 +1,7 @@
 import Navbar from './components/Nav/Nav'
 import SearchBar from './components/SearchBar/SearchBar';
 import WordDefinition from './components/WordDefinition/WordDefinition';
+import NoDefinition from './components/NoDefinition/NoDefinition';
 import { useState } from 'react';
 
 // type WordDefinition = {
@@ -14,14 +15,16 @@ import { useState } from 'react';
 
 function App() {
     const [definitions, setDefinitions] = useState<Array<WordDefinition> | string>("");
-    const [selectedFont, setSelectedFont] = useState(0);
+    const [searched, setSearched] = useState<boolean>(false);
+    const [selectedFont, setSelectedFont] = useState<number>(0);
     const dictionaryAPIURI = 'https://api.dictionaryapi.dev/api/v2/entries/en/';
     const fontOptions = ['sans', 'serif', 'mono'];
 
     const fetchWordDefinitions = async (word: string) => {
+        setSearched(true);
         const response = await fetch(`${dictionaryAPIURI}${word}`);
         if (!response.ok) {
-            setDefinitions("");
+            setDefinitions('');
             throw new Error(`HTTP Error! status: ${response.status}`)
         }
         const json = await response.json();
@@ -42,9 +45,11 @@ function App() {
                     <SearchBar search={fetchWordDefinitions} />
                 </div>
                 <section className='h-screen'>
-                    {typeof definitions !== 'string' && (
+                    {typeof definitions !== 'string' ? (
                         definitions.map((definition: WordDefinition, i: number) => (
-                            <WordDefinition key={i} {...definition} />)))}
+                            <WordDefinition key={i} {...definition} />))) : (
+                            <NoDefinition searched={searched} />
+                    )}
                 </section>
             </div >
         </div>
