@@ -24,7 +24,7 @@ function SearchBar({ search }: AppProps) {
             <div className="relative">
                 <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                 </div>
-                <input type="search" id="default-search" className="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:border-gray-900" placeholder="Search for any word..." onChange={handleChange} required />
+                <input type="search" id="default-search" className="block w-full p-4 pl-10 text-sm text-gray-900 dark:text-white border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:border-gray-900 dark:bg-gray-600" placeholder="Search for any word..." onChange={handleChange} required />
                 <button type="submit" className="text-white absolute right-2.5 bottom-2.5 focus:outline-none font-medium rounded-lg text-sm px-4 py-2"><img src={searchIcon} /></button>
             </div>
         </form>

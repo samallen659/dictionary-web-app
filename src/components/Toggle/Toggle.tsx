@@ -8,7 +8,7 @@ function Toggle() {
     const handleChange = ():void => {
         setDarkMode(!darkMode);
         document.body.classList.toggle('dark');
-        document.body.classList.toggle('bg-grey-700');
+        document.body.classList.toggle('bg-gray-700');
     }
 
     return (

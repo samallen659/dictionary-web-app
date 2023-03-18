@@ -35,8 +35,8 @@ function App() {
     }
 
     return (
-        <div className='dark:bg-gray-700 w-full h-screen'>
-            <main className={`container pt-6 lg:pt-14 font-${fontOptions[selectedFont]}`}>
+        <div className=' w-full'>
+            <div className={`container pt-6 lg:pt-14 font-${fontOptions[selectedFont]}`}>
                 <Navbar handleFontChange={handleFontChange} />
                 <div className='pt-8'>
                     <SearchBar search={fetchWordDefinitions} />
@@ -46,7 +46,7 @@ function App() {
                         definitions.map((definition: WordDefinition, i: number) => (
                             <WordDefinition key={i} {...definition} />)))}
                 </section>
-            </main >
+            </div >
         </div>
     )
 }

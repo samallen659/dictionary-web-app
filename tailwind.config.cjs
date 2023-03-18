@@ -1,6 +1,12 @@
 /** @type {import('tailwindcss').Config} */ module.exports = {
     darkMode: 'class',
     content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+    safelist: [
+        'font-serif',
+        'font-sans',
+        'font-mono',
+        'bg-gray-700',
+    ],
     theme: {
         extend: {
             colors: {
@@ -10,7 +16,7 @@
                     300: "#757575",
                     400: "#3A3A3A",
                     500: "#2D2D2D",
-                    600: "1F1F1F",
+                    600: "#1F1F1F",
                     700: "#050505",
                 },
                 purple: "#A445ED",
@@ -18,6 +24,7 @@
             },
             container: {
                 center: true,
+                padding: "1.5rem",
             }
         },
         fontFamily: {
